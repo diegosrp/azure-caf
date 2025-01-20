@@ -1,0 +1,45 @@
+{
+  "name": "Example-Initiative",
+  "type": "Microsoft.Authorization/policySetDefinitions",
+  "id": "/providers/Microsoft.Management/managementGroups/mg-example-management/providers/Microsoft.Authorization/policySetDefinitions/Example-Initiative",
+  "properties": {
+    "displayName": "Example Initiative",
+    "policyType": "Custom",
+    "description": "Just an example initiative.",
+    "metadata": {
+      "category": "General"
+    },
+    "version": "1.0.0",
+    "parameters": {
+      "tagName": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Tag Name",
+          "description": "The name of the tag to enforce."
+        },
+        "defaultValue": "business-owner"
+      }
+    },
+    "policyDefinitions": [
+      {
+        "policyDefinitionReferenceId": "Provisioned-Managed deployment type is not allowed",
+        "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/mg-example-management/providers/Microsoft.Authorization/policyDefinitions/Restrict-Cognitive-Services-Types",
+        "definitionVersion": "1.*.*",
+        "effectiveDefinitionVersion": "1.0.0",
+        "parameters": {}
+      },
+      {
+        "policyDefinitionReferenceId": "Require a tag on resource group: business-owner",
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/96670d01-0a4d-4649-9c89-2d3abc0a5025",
+        "definitionVersion": "1.*.*",
+        "effectiveDefinitionVersion": "1.0.0",
+        "parameters": {
+          "tagName": {
+            "value": "[parameters('tagName')]"
+          }
+        }
+      }
+    ],
+    "policyDefinitionGroups": []
+  }
+}

@@ -26,6 +26,9 @@ module "alz" {
   deploy_core_landing_zones = true
   custom_landing_zones      = local.caf_configure_custom_landing_zones # settings.core.tf
 
+  # Path of the library with customization files
+  library_path = "${path.root}/lib"
+
   # Configuration settings for identity resources is
   # bundled with core as no resources are actually created
   # for the identity subscription

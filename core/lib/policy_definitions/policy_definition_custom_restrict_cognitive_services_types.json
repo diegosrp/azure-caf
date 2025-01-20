@@ -1,0 +1,61 @@
+{
+  "name": "Restrict-Cognitive-Services-Types",
+  "type": "Microsoft.Authorization/policyDefinitions",
+  "properties": {
+    "displayName": "Restrict Cognitive Services Types",
+    "description": "Enforces the allowed deployment types for Microsoft Cognitive Services accounts. Deployments with unapproved SKUs will be denied.",
+    "metadata": {
+      "category": "Cognitive Services",
+      "version": "1.0.0"
+    },
+    "mode": "All",
+    "parameters": {
+      "allowedSkus": {
+        "type": "Array",
+        "metadata": {
+          "displayName": "Allowed Deployment Types",
+          "description": "Select the allowed Deployment Types for deployment"
+        },
+        "allowedValues": [
+          "Standard",
+          "Provisioned-Managed",
+          "GlobalStandard"
+        ],
+        "defaultValue": [
+          "Standard",
+          "GlobalStandard"
+        ]
+      },
+      "effect": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Effect for the others",
+          "description": "Enable or disable the enforcement of the policy"
+        },
+        "allowedValues": [
+          "AuditIfNotExists",
+          "Deny",
+          "Disabled"
+        ],
+        "defaultValue": "Deny"
+      }
+    },
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.CognitiveServices/accounts/deployments"
+          },
+          {
+            "field": "Microsoft.CognitiveServices/accounts/deployments/sku.name",
+            "notIn": "[parameters('allowedSkus')]"
+          }
+        ]
+      },
+      "then": {
+        "effect": "[parameters('effect')]"
+      }
+    }
+  }
+}
