@@ -1,0 +1,27 @@
+{
+  "type": "Microsoft.Authorization/policyAssignments",
+  "apiVersion": "2019-09-01",
+  "name": "Ex-Init-Assign",
+  "location": "${default_location}",
+  "identity": {
+    "type": "None"
+  },
+  "properties": {
+    "description": "Just an example initiative.",
+    "displayName": "Example Initiative Assignment",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/mg-example-management/providers/Microsoft.Authorization/policySetDefinitions/Example-Initiative",
+    "nonComplianceMessages": [
+      {
+        "message": "Resources under this scope must comply with the Example Initiative."
+      }
+    ],
+    "parameters": {
+      "tagName": {
+        "value": "business-owner"
+      }
+    },
+    "notScopes": [],
+    "scope": "${current_scope_resource_id}",
+    "enforcementMode": null
+  }
+}
