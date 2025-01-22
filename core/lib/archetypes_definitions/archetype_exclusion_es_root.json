@@ -1,0 +1,20 @@
+{
+  "exclude_es_root": {
+    "policy_assignments": [
+      "Deploy-MDFC-OssDb"
+    ],
+    "policy_definitions": [],
+    "policy_set_definitions": [],
+    "role_definitions": [
+      "Network-Subnet-Contributor",
+      "Application-Owners",
+      "Network-Management",
+      "Security-Operations",
+      "Subscription-Owner"
+    ],
+    "archetype_config": {
+      "parameters": {},
+      "access_control": {}
+    }
+  }
+}
