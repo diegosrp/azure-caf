@@ -1,7 +1,6 @@
 {
   "name": "Example-Initiative",
   "type": "Microsoft.Authorization/policySetDefinitions",
-  "id": "/providers/Microsoft.Management/managementGroups/mg-example-management/providers/Microsoft.Authorization/policySetDefinitions/Example-Initiative",
   "properties": {
     "displayName": "Example Initiative",
     "policyType": "Custom",
@@ -23,7 +22,7 @@
     "policyDefinitions": [
       {
         "policyDefinitionReferenceId": "Provisioned-Managed deployment type is not allowed",
-        "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/mg-example-management/providers/Microsoft.Authorization/policyDefinitions/Restrict-Cognitive-Services-Types",
+        "policyDefinitionId": "${root_scope_resource_id}-management/providers/Microsoft.Authorization/policyDefinitions/Restrict-Cognitive-Services-Types",
         "definitionVersion": "1.*.*",
         "effectiveDefinitionVersion": "1.0.0",
         "parameters": {}

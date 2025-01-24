@@ -1,12 +1,12 @@
 {
   "extend_es_management": {
       "policy_assignments": [
-       "Deny-Subnet-Without-Nsg",
-       "ISO-27001",
-       "Ex-Init-Assign"
+        "Deny-Subnet-Without-Nsg",
+        "ISO-27001",
+        "Ex-Init-Assign"
       ],
       "policy_definitions": [
-       "Restrict-Cognitive-Services-Types"
+        "Restrict-Cognitive-Services-Types"
       ],
       "policy_set_definitions": [
         "Example-Initiative"

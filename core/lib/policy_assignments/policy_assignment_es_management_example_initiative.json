@@ -9,7 +9,7 @@
   "properties": {
     "description": "Just an example initiative.",
     "displayName": "Example Initiative Assignment",
-    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/mg-example-management/providers/Microsoft.Authorization/policySetDefinitions/Example-Initiative",
+    "policyDefinitionId": "${root_scope_resource_id}-management/providers/Microsoft.Authorization/policySetDefinitions/Example-Initiative",
     "nonComplianceMessages": [
       {
         "message": "Resources under this scope must comply with the Example Initiative."
