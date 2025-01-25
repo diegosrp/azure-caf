@@ -43,7 +43,7 @@ locals {
       parent_management_group_id = "${var.root_id}-landing-zones"
       subscription_ids           = local.caf_configure_mg_subscriptions["custom"]
       archetype_config = {
-        archetype_id   = "default_empty"
+        archetype_id   = "custom"
         parameters     = {}
         access_control = {}
       }
